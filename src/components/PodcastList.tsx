@@ -16,10 +16,20 @@ const PodcastList = () => {
       <h2>PodcastList</h2>
       {isLoading && <p>Loading...</p>}
       {isSuccess && <p>Success</p>}
-      {!!data &&
-        data.feed.entry.map((podcast: Podcast) => (
-          <PodCastCard key={podcast.id.attributes['im:id']} podcast={podcast} />
-        ))}
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+        }}
+      >
+        {!!data &&
+          data.feed.entry.map((podcast: Podcast) => (
+            <PodCastCard
+              key={podcast.id.attributes['im:id']}
+              podcast={podcast}
+            />
+          ))}
+      </div>
     </div>
   )
 }
