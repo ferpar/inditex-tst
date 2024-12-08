@@ -8,7 +8,7 @@ const PodcastList = () => {
   const { data, isLoading, isSuccess } = useQuery({
     queryKey: ['podcasts'],
     queryFn: getPodcasts,
-    staleTime: 1000 * 60 * 60, // 1 hour
+    staleTime: 1000 * 60 * 60 * 24, // 1 day
   })
 
   return (
