@@ -3,6 +3,7 @@ import { ReactQueryClientProvider } from '@/core/Providers/ReactQueryClientProvi
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
+import styles from './layout.module.css'
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -30,6 +31,9 @@ export default function RootLayout({
       <ReactQueryClientProvider>
         <PodcastProvider>
           <body className={`${geistSans.variable} ${geistMono.variable}`}>
+            <div className={styles.header}>
+              <h1 className={styles.title}>PodCaster</h1>
+            </div>
             {children}
           </body>
         </PodcastProvider>
