@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { PodcastProvider } from '@/core/Providers/PodcastContext'
 import { ReactQueryClientProvider } from '@/core/Providers/ReactQueryClientProvider'
 import type { Metadata } from 'next'
@@ -32,7 +33,9 @@ export default function RootLayout({
         <PodcastProvider>
           <body className={`${geistSans.variable} ${geistMono.variable}`}>
             <div className={styles.header}>
-              <h1 className={styles.title}>PodCaster</h1>
+              <Link href="/">
+                <h1 className={styles.title}>PodCaster</h1>
+              </Link>
             </div>
             {children}
           </body>

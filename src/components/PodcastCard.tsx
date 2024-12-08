@@ -1,9 +1,11 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { type Podcast } from '../core/Providers/PodcastContext'
 import styles from './PodcastCard.module.css'
 const PodcastCard = ({ podcast }: { podcast: Podcast }) => {
+  const podcastId = podcast.id.attributes['im:id']
   return (
-    <div className={styles.card}>
+    <Link className={styles.card} href={`/podcast/${podcastId}`}>
       {podcast['im:image'][2] !== undefined ? (
         <div className={styles.imageSection}>
           <div className={styles.imageWrapper}>
@@ -22,7 +24,7 @@ const PodcastCard = ({ podcast }: { podcast: Podcast }) => {
           Author: {podcast['im:artist'].label}
         </p>
       </div>
-    </div>
+    </Link>
   )
 }
 
