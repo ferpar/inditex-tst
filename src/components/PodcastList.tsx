@@ -1,6 +1,8 @@
 'use client'
 import { getPodcasts } from '@/core/ApiGateway'
 import { useQuery } from '@tanstack/react-query'
+import PodCastCard from './PodCastCard'
+import { type Podcast } from '@/core/Providers/PodcastContext'
 
 const PodcastList = () => {
   const { data, isLoading, isSuccess } = useQuery({
@@ -14,7 +16,10 @@ const PodcastList = () => {
       <h2>PodcastList</h2>
       {isLoading && <p>Loading...</p>}
       {isSuccess && <p>Success</p>}
-      {!!data && <pre>{JSON.stringify(data, null, 2)}</pre>}
+      {!!data &&
+        data.feed.entry.map((podcast: Podcast) => (
+          <PodCastCard key={podcast.id.attributes['im:id']} podcast={podcast} />
+        ))}
     </div>
   )
 }
