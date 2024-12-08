@@ -4,3 +4,28 @@
   gap: 2rem;
   padding: 2rem;
 }
+
+.topSection {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem 0;
+  gap: 1rem;
+  padding-right: 2rem;
+}
+
+.filterInput {
+  padding: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  width: 200px;
+}
+
+.podcastCount {
+  font-size: var(--font-size-l);
+  font-weight: bold;
+  color: var(--primary-contrast);
+  background-color: var(--primary);
+  padding: 0 0.5rem;
+  border-radius: 5px;
+}

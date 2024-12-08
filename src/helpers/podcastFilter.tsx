@@ -1,7 +1,7 @@
 import { Podcast } from '@/core/Providers/PodcastContext'
 
 export function podcastFilter(input: Podcast[], filter: string): Podcast[] {
-  return input.filter((podcast) => {
+  return input?.filter((podcast) => {
     const condition1 = podcast['im:name'].label
       .toLowerCase()
       .includes(filter.toLowerCase())

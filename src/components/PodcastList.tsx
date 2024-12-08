@@ -18,12 +18,21 @@ const PodcastList = () => {
   const podcasts = data?.feed?.entry
   const filteredPodcasts = podcastFilter(podcasts, filterText)
 
+  const podcastNumber = filteredPodcasts?.length
+
   return (
     <div>
-      <h2>PodcastList</h2>
-      {isLoading && <p>Loading...</p>}
-      {isSuccess && <p>Success</p>}
-      <input type="text" onChange={(e) => setFilterText(e.target.value)} />
+      <div className={styles.topSection}>
+        {isLoading && <p>Loading...</p>}
+        {isSuccess && <p>Success</p>}
+        <div className={styles.podcastCount}>{podcastNumber}</div>
+        <input
+          className={styles.filterInput}
+          placeholder="Filter podcasts..."
+          type="text"
+          onChange={(e) => setFilterText(e.target.value)}
+        />
+      </div>
       <div className={styles.mainGrid}>
         {!!filteredPodcasts &&
           filteredPodcasts.map((podcast: Podcast) => (
