@@ -1,5 +1,5 @@
-import { PodcastProvider } from '@/core/PodcastContext'
-import { ReactQueryClientProvider } from '@/core/ReactQueryClientProvider'
+import { PodcastProvider } from '@/core/Providers/PodcastContext'
+import { ReactQueryClientProvider } from '@/core/Providers/ReactQueryClientProvider'
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
