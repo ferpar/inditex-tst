@@ -18,10 +18,14 @@ export type Podcast = {
   }
   'im:artist': {
     label: string
+    attributes?: {
+      href: string
+    }
   }
   'im:contentType': {
     attributes: {
       term: string
+      label: string
     }
   }
   'im:image': {
@@ -35,17 +39,29 @@ export type Podcast = {
   }
   'im:releaseDate': {
     label: string
+    attributes: {
+      label: string
+    }
   }
   link: {
     attributes: {
+      rel: string
+      type: string
       href: string
     }
   }
-  rights: {
+  rights?: {
     label: string
   }
   summary: {
     label: string
+  }
+  'im:price'?: {
+    label: string
+    attributes: {
+      amount: string
+      currency: string
+    }
   }
   title: {
     label: string
@@ -62,12 +78,12 @@ export interface PodcastContextType {
 export const initialPodcastDetail: Podcast = {
   category: { attributes: { 'im:id': '', term: '', label: '', scheme: '' } },
   id: { attributes: { 'im:id': '' }, label: '' },
-  'im:artist': { label: '' },
-  'im:contentType': { attributes: { term: '' } },
+  'im:artist': { label: '', attributes: { href: '' } },
+  'im:contentType': { attributes: { term: '', label: '' } },
   'im:image': [{ label: '', attributes: { height: '' } }],
   'im:name': { label: '' },
-  'im:releaseDate': { label: '' },
-  link: { attributes: { href: '' } },
+  'im:releaseDate': { label: '', attributes: { label: '' } },
+  link: { attributes: { rel: '', type: '', href: '' } },
   rights: { label: '' },
   summary: { label: '' },
   title: { label: '' },

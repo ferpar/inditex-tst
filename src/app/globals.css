@@ -8,8 +8,12 @@
   --font-size-xxl: calc(42 / 16 * 1rem);
   --font-size-xxxl: calc(72 / 16 * 1rem);
 
+  --thumbnail-size: 150px;
+
   /* Colors */
   --og-header-bg: rgb(193, 184, 110);
+  --text-primary: rgb(0, 0, 0);
+  --text-secondary: rgb(128, 128, 128);
 }
 /*
   1. Use a more-intuitive box-sizing model.
@@ -89,6 +93,7 @@ extra 2. ensure 100% height on html and body
 html,
 body {
   height: 100%;
+  color: var(--text-primary);
 }
 /***** end reset *********/
 
