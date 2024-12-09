@@ -1,4 +1,4 @@
-import { Podcast } from '@/core/Providers/PodcastContext'
+import { Podcast } from '@/types'
 
 export const podcasts: Podcast[] = [
   {

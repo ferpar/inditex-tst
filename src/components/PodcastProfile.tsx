@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePodcasts } from '@/core/PodcastRepository'
 import styles from './PodcastProfile.module.css'
-import { type Podcast } from '@/core/Providers/PodcastContext'
+import { type Podcast } from '@/types'
 type Props = {
   podcastId: string
 }

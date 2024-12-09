@@ -1,4 +1,4 @@
-import { Podcast } from '@/core/Providers/PodcastContext'
+import { Podcast } from '@/types'
 
 export function podcastFilter(input: Podcast[], filter: string): Podcast[] {
   return input?.filter((podcast) => {

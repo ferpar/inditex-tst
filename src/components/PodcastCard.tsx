@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { type Podcast } from '../core/Providers/PodcastContext'
+import { type Podcast } from '@/types'
 import styles from './PodcastCard.module.css'
 
 const PodcastCard = ({ podcast }: { podcast: Podcast }) => {

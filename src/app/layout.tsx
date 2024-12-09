@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { PodcastProvider } from '@/core/Providers/PodcastContext'
 import { ReactQueryClientProvider } from '@/core/Providers/ReactQueryClientProvider'
 import type { Metadata } from 'next'
 import './globals.css'
@@ -18,21 +17,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ReactQueryClientProvider>
-        <PodcastProvider>
-          <body>
-            <div className={styles.header}>
-              <Link
-                className={styles.titleLink}
-                href="/"
-                style={{ display: 'inline-block' }}
-              >
-                <h1 className={styles.title}>PodCaster</h1>
-              </Link>
-            </div>
-            <hr className={styles.horizontalRule} />
-            {children}
-          </body>
-        </PodcastProvider>
+        <body>
+          <div className={styles.header}>
+            <Link
+              className={styles.titleLink}
+              href="/"
+              style={{ display: 'inline-block' }}
+            >
+              <h1 className={styles.title}>PodCaster</h1>
+            </Link>
+          </div>
+          <hr className={styles.horizontalRule} />
+          {children}
+        </body>
       </ReactQueryClientProvider>
     </html>
   )
