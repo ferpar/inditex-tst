@@ -14,7 +14,7 @@
 .imageSection {
   display: flex;
   justify-content: center;
-  padding: 2rem 1rem;
+  padding: 1rem 0;
 }
 
 .imageWrapper {
@@ -23,4 +23,35 @@
   aspect-ratio: 1/1;
   overflow: hidden;
   border-radius: var(--button-border-radius);
+}
+
+.horizontalRule {
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 1rem 0;
+}
+
+.titleSection {
+  padding: 1rem 1rem 0.5rem;
+}
+
+.titleSection > h2 {
+  font-size: var(--font-size-m);
+}
+
+.titleSection > p {
+  font-size: var(--font-size-m);
+  font-style: italic;
+}
+
+.description > p {
+  font-size: var(--font-size-m);
+}
+
+.description :first-child {
+  margin-bottom: 0.5rem;
+}
+
+.description :nth-child(2) {
+  font-style: italic;
 }

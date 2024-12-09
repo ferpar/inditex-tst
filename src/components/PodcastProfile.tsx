@@ -29,10 +29,18 @@ export default function PodcastProfile({ podcastId }: Props) {
               />
             </div>
           </div>
-          <h2>{podcast['im:name']?.label}</h2>
-          <p>by {podcast['im:artist'].label}</p>
-          <b>Description:</b>
-          <p>{podcast?.summary?.label}</p>
+          <hr className={styles.horizontalRule} />
+          <div className={styles.titleSection}>
+            <h2>{podcast['im:name']?.label}</h2>
+            <p>by {podcast['im:artist'].label}</p>
+          </div>
+          <hr className={styles.horizontalRule} />
+          <div className={styles.description}>
+            <p>
+              <b>Description:</b>
+            </p>
+            <p>{podcast?.summary?.label}</p>
+          </div>
         </div>
       )}
     </div>
