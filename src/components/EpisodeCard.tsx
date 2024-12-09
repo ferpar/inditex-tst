@@ -1,6 +1,7 @@
 'use client'
 import { usePodcastDetail } from '@/core/PodcastRepository'
 import styles from './EpisodeCard.module.css'
+import DOMPurify from 'dompurify' // sanitizes HTML on the description
 
 type Episode = {
   trackName: string //title
@@ -19,6 +20,8 @@ export default function EpisodeCard({ podcastId, episodeId }: Props) {
     return episode.trackId === parseInt(episodeId)
   })
 
+  const cleanDescription = DOMPurify.sanitize(episode?.description)
+
   if (isLoading) {
     return <div>Loading...</div>
   }
@@ -30,7 +33,10 @@ export default function EpisodeCard({ podcastId, episodeId }: Props) {
   return (
     <div className={styles.episodeCard}>
       <h2 className={styles.episodeTitle}>{episode?.trackName}</h2>
-      <p className={styles.episodeDescription}>{episode?.description}</p>
+      <div
+        className={styles.episodeDescription}
+        dangerouslySetInnerHTML={{ __html: cleanDescription }}
+      />
     </div>
   )
 }
