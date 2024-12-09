@@ -6,3 +6,14 @@
   font-size: var(--font-size-xl);
   color: var(--primary);
 }
+
+.titleLink {
+  display: inline-block;
+  width: fit-content;
+}
+
+.horizontalRule {
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 0 0.5rem 1rem;
+}

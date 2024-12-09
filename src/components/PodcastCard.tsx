@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { type Podcast } from '../core/Providers/PodcastContext'
 import styles from './PodcastCard.module.css'
+
 const PodcastCard = ({ podcast }: { podcast: Podcast }) => {
   const podcastId = podcast.id.attributes['im:id']
   return (

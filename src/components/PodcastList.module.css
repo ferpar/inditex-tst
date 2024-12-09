@@ -17,7 +17,7 @@
 .filterInput {
   padding: 0.5rem;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
+  border-radius: var(--button-border-radius);
   width: 200px;
 }
 
@@ -27,5 +27,5 @@
   color: var(--primary-contrast);
   background-color: var(--primary);
   padding: 0 0.5rem;
-  border-radius: 5px;
+  border-radius: var(--button-border-radius);
 }

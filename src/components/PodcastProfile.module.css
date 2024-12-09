@@ -1,0 +1,26 @@
+.podcasterProfile {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.profileCard {
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  border-radius: var(--card-border-radius);
+}
+
+.imageSection {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 230px;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  border-radius: var(--button-border-radius);
+}

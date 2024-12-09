@@ -20,19 +20,15 @@ export const getPodcasts = () => {
     })
 }
 
-export const getPodcastDetail = (id: string) => {
+export const getPodcastDetail = async (id: string) => {
   const url = allOriginsWrapper(
     `https://itunes.apple.com/lookup?id=${id}&media=podcast&entity=podcastEpisode&limit=20`
   )
-  return fetch(allOriginsWrapper(url))
-    .then((response) => {
-      if (response.ok) return response.json()
-      throw new Error('Network response was not ok.')
-    })
-    .then((data) => {
-      if (!data?.contents) {
-        console.error('No contents')
-      }
-      return JSON.parse(data?.contents)
-    })
+
+  const data = await fetch(url).then((response) => {
+    if (response.ok) return response.json()
+    throw new Error('Network response was not ok.')
+  })
+
+  return JSON.parse(data?.contents)
 }

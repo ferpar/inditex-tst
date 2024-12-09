@@ -20,15 +20,14 @@
   --extra-height: calc(var(--thumbnail-size) * 0.5);
   margin-top: calc(var(--extra-height) * (3 / 4));
   padding: calc(var(--extra-height) * (5 / 4)) 2rem 1rem;
-  border-radius: 4px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  border-radius: var(--card-border-radius);
+  box-shadow: var(--shadow);
   text-align: center;
 }
 
 .contentTitle {
   margin-top: 0.5rem;
   font-size: var(--font-size-l);
-  line-height: 1.2;
   text-transform: uppercase;
 }
 

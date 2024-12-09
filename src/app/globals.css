@@ -10,11 +10,17 @@
 
   --thumbnail-size: 150px;
 
+  --card-border-radius: 4px;
+  --button-border-radius: 5px;
+
   /* Colors */
   --primary: #2e7abb;
   --primary-contrast: #fff;
   --text-primary: rgb(0, 0, 0);
   --text-secondary: rgb(128, 128, 128);
+
+  /* Shadows */
+  --shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 /*
   1. Use a more-intuitive box-sizing model.
@@ -110,6 +116,15 @@ body {
 p {
   transition: font-size 0.2s ease-in-out;
   font-size: var(--font-size-m);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
 }
 
 h1 {
