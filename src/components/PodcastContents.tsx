@@ -1,8 +1,9 @@
 'use client'
 import { usePodcastDetail } from '@/core/PodcastRepository'
 import { getFormattedDate, milliToClock } from '@/helpers/time'
-import styles from './PodcastContents.module.css'
 import Link from 'next/link'
+import { pageLimit } from '@/core/constants'
+import styles from './PodcastContents.module.css'
 
 type PodcastContent = {
   trackId: number
@@ -24,10 +25,15 @@ export default function PodcastContents({ podcastId }: Props) {
 
   console.log(podcastContents)
 
+  const podcastCount =
+    podcastContents?.resultCount - 1 === pageLimit
+      ? `${pageLimit}+`
+      : podcastContents?.resultCount - 1
+
   return (
     <div className={styles.podcastsInfo}>
       <div className={styles.podcastsSummary}>
-        Episodes: {podcastContents?.resultCount - 1}
+        Episodes: {isLoading ? 'Loading...' : podcastCount}
       </div>
       <div className={styles.podcastsTable}>
         <div className={styles.podcastsTableHeader}>

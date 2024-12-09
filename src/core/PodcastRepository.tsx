@@ -1,4 +1,4 @@
-import { getPodcasts, getPodcastDetail } from '@/core/ApiGateway'
+import { getPodcasts, getPodcastDetail } from '@/core/PodcastService'
 import { useQuery } from '@tanstack/react-query'
 
 const usePodcasts = () => {

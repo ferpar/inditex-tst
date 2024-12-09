@@ -1,4 +1,5 @@
 import { allOriginsWrapper } from '@/helpers/AllOrigins'
+import { pageLimit } from './constants'
 
 export const getPodcasts = () => {
   const url = allOriginsWrapper(
@@ -22,7 +23,7 @@ export const getPodcasts = () => {
 
 export const getPodcastDetail = async (id: string) => {
   const url = allOriginsWrapper(
-    `https://itunes.apple.com/lookup?id=${id}&media=podcast&entity=podcastEpisode&limit=20`
+    `https://itunes.apple.com/lookup?id=${id}&media=podcast&entity=podcastEpisode&limit=${pageLimit}`
   )
 
   const data = await fetch(url).then((response) => {

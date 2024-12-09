@@ -2,11 +2,13 @@
 import { usePodcastDetail } from '@/core/PodcastRepository'
 import styles from './EpisodeCard.module.css'
 import DOMPurify from 'dompurify' // sanitizes HTML on the description
+import { replaceCarriageReturns } from '@/helpers/strings'
 
 type Episode = {
   trackName: string //title
   description: string
   trackId: number
+  previewUrl: string
 }
 
 type Props = {
@@ -20,7 +22,9 @@ export default function EpisodeCard({ podcastId, episodeId }: Props) {
     return episode.trackId === parseInt(episodeId)
   })
 
-  const cleanDescription = DOMPurify.sanitize(episode?.description)
+  const cleanDescription = DOMPurify.sanitize(
+    replaceCarriageReturns(episode?.description)
+  )
 
   if (isLoading) {
     return <div>Loading...</div>
@@ -37,6 +41,10 @@ export default function EpisodeCard({ podcastId, episodeId }: Props) {
         className={styles.episodeDescription}
         dangerouslySetInnerHTML={{ __html: cleanDescription }}
       />
+      <audio controls>
+        <source src={episode?.previewUrl} type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
     </div>
   )
 }
