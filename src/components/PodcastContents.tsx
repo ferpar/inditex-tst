@@ -2,6 +2,7 @@
 import { usePodcastDetail } from '@/core/PodcastRepository'
 import { getFormattedDate, milliToClock } from '@/helpers/time'
 import styles from './PodcastContents.module.css'
+import Link from 'next/link'
 
 type PodcastContent = {
   trackId: number
@@ -20,6 +21,8 @@ export default function PodcastContents({ podcastId }: Props) {
     isLoading,
     isSuccess,
   } = usePodcastDetail(podcastId)
+
+  console.log(podcastContents)
 
   return (
     <div className={styles.podcastsInfo}>
@@ -42,7 +45,11 @@ export default function PodcastContents({ podcastId }: Props) {
               return (
                 <div className={styles.podcastsTableRow} key={content.trackId}>
                   <p className={styles.title}>
-                    {content.trackName.split('|')[1] || content.trackName}
+                    <Link
+                      href={`/podcast/${podcastId}/episode/${content.trackId}`}
+                    >
+                      {content.trackName.split('|')[1] || content.trackName}
+                    </Link>
                   </p>
                   <p className={styles.date}>
                     {getFormattedDate(content.releaseDate)}

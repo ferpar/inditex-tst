@@ -1,4 +1,5 @@
 'use client'
+import Link from 'next/link'
 import Image from 'next/image'
 import { usePodcasts } from '@/core/PodcastRepository'
 import styles from './PodcastProfile.module.css'
@@ -20,18 +21,24 @@ export default function PodcastProfile({ podcastId }: Props) {
       {podcast && (
         <div className={styles.profileCard}>
           <div className={styles.imageSection}>
-            <div className={styles.imageWrapper}>
-              <Image
-                src={podcast['im:image'][2].label}
-                fill={true}
-                alt={podcast['im:name'].label}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
-            </div>
+            <Link href={`/podcast/${podcastId}`}>
+              <div className={styles.imageWrapper}>
+                <Image
+                  src={podcast['im:image'][2].label}
+                  fill={true}
+                  alt={podcast['im:name'].label}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+              </div>
+            </Link>
           </div>
           <hr className={styles.horizontalRule} />
           <div className={styles.titleSection}>
-            <h2>{podcast['im:name']?.label}</h2>
+            <h2>
+              <Link href={`/podcast/${podcastId}`}>
+                {podcast['im:name']?.label}
+              </Link>
+            </h2>
             <p>by {podcast['im:artist'].label}</p>
           </div>
           <hr className={styles.horizontalRule} />
