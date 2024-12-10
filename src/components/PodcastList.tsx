@@ -8,7 +8,7 @@ import styles from './PodcastList.module.css'
 
 const PodcastList = () => {
   const [filterText, setFilterText] = React.useState('')
-  const { data, isLoading, isSuccess } = usePodcasts()
+  const { data, isLoading } = usePodcasts()
 
   const podcasts = data?.feed?.entry
   const filteredPodcasts = podcastFilter(podcasts, filterText)
@@ -21,7 +21,6 @@ const PodcastList = () => {
         {isLoading && (
           <p>Please wait for the Podcasts to Load. It might take a minute...</p>
         )}
-        {isSuccess && <p>Success</p>}
         <div className={styles.podcastCount}>{podcastNumber}</div>
         <input
           className={styles.filterInput}
