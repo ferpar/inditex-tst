@@ -34,10 +34,20 @@ In order to run it locally you have two options:
 Clone the repository and install dependencies:
 
 ```bash
-git clone <repo-url>
-cd <repo-folder>
+gh repo clone ferpar/inditex-tst
+cd inditext-tst
 npm install
 ```
+
+That is an example of cloning via github cli. It will differ accordingly for
+
+- SSH: ```bash
+  git@github.com:ferpar/inditex-tst.git
+
+````
+- HTTPS: ```bash
+https://github.com/ferpar/inditex-tst.git
+````
 
 There are no environment variables, since all external services in use are publicly available.
 
