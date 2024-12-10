@@ -23,8 +23,6 @@ export default function PodcastContents({ podcastId }: Props) {
     isSuccess,
   } = usePodcastDetail(podcastId)
 
-  console.log(podcastContents)
-
   const podcastCount =
     podcastContents?.resultCount - 1 === pageLimit
       ? `${pageLimit}+`

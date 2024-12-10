@@ -3,12 +3,12 @@ import { render } from '@testing-library/react'
 import Page from '../app/page'
 import { describe } from 'node:test'
 import { podcasts } from '../fixtures/podcasts'
+import { podcastContents } from '@/fixtures/podcastContents'
 
-// mocking the useQuery hook
-//need to mock since changing the useQuery property is not allowed by 3rd party library
-jest.mock('@tanstack/react-query', () => ({
-  ...jest.requireActual('@tanstack/react-query'),
-  useQuery: jest.fn().mockImplementation(() => {
+// mock the PodcastRepository module
+jest.mock('@/core/PodcastRepository', () => ({
+  ...jest.requireActual('@/core/PodcastRepository'),
+  usePodcasts: jest.fn().mockImplementation(() => {
     return {
       data: {
         feed: {
@@ -19,6 +19,25 @@ jest.mock('@tanstack/react-query', () => ({
       isSuccess: true,
     }
   }),
+  usePodcastDetail: jest.fn().mockImplementation(() => {
+    return {
+      data: {
+        results: podcastContents,
+      },
+      isLoading: false,
+      isSuccess: true,
+    }
+  }),
+}))
+
+jest.mock('next/navigation', () => ({
+  ...jest.requireActual('next/navigation'),
+  useRouter: jest.fn().mockReturnValue({
+    push: jest.fn(),
+    replace: jest.fn(),
+    back: jest.fn(),
+  }),
+  usePathname: jest.fn(),
 }))
 
 describe('Main page', () => {

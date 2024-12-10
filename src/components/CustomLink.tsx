@@ -28,7 +28,6 @@ function CustomLink({
 
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault()
-    console.log('handleClick')
     setIsTransitioning(true)
     startTransition(() => {
       router.push(href)
@@ -36,7 +35,6 @@ function CustomLink({
   }
 
   useEffect(() => {
-    console.log('useEffect')
     setIsTransitioning(false)
   }, [pathname, setIsTransitioning])
 
