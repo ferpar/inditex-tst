@@ -19,6 +19,12 @@ export const getPodcasts = () => {
       }
       return JSON.parse(data?.contents)
     })
+    .catch((error) => {
+      console.error(
+        'There has been a problem with your fetch operation:',
+        error
+      )
+    })
 }
 
 export const getPodcastDetail = async (id: string) => {
@@ -26,10 +32,17 @@ export const getPodcastDetail = async (id: string) => {
     `https://itunes.apple.com/lookup?id=${id}&media=podcast&entity=podcastEpisode&limit=${pageLimit}`
   )
 
-  const data = await fetch(url).then((response) => {
-    if (response.ok) return response.json()
-    throw new Error('Network response was not ok.')
-  })
+  const data = await fetch(url)
+    .then((response) => {
+      if (response.ok) return response.json()
+      throw new Error('Network response was not ok.')
+    })
+    .catch((error) => {
+      console.error(
+        'There has been a problem with your fetch operation:',
+        error
+      )
+    })
 
   return JSON.parse(data?.contents)
 }
