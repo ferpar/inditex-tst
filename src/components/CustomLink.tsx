@@ -28,6 +28,7 @@ function CustomLink({
 
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault()
+    if (pathname === href) return
     setIsTransitioning(true)
     startTransition(() => {
       router.push(href)
