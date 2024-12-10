@@ -1,7 +1,7 @@
 'use client'
 import { usePodcastDetail } from '@/core/PodcastRepository'
 import { getFormattedDate, milliToClock } from '@/helpers/time'
-import Link from 'next/link'
+import CustomLink from '@/components/CustomLink'
 import { pageLimit } from '@/core/constants'
 import styles from './PodcastContents.module.css'
 
@@ -51,11 +51,11 @@ export default function PodcastContents({ podcastId }: Props) {
               return (
                 <div className={styles.podcastsTableRow} key={content.trackId}>
                   <p className={styles.title}>
-                    <Link
+                    <CustomLink
                       href={`/podcast/${podcastId}/episode/${content.trackId}`}
                     >
                       {content.trackName.split('|')[1] || content.trackName}
-                    </Link>
+                    </CustomLink>
                   </p>
                   <p className={styles.date}>
                     {getFormattedDate(content.releaseDate)}

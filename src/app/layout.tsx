@@ -1,6 +1,8 @@
-import Link from 'next/link'
 import { ReactQueryClientProvider } from '@/core/Providers/ReactQueryClientProvider'
+import { PageTransitionProvider } from '@/core/Providers/PageTransitionProvider'
 import type { Metadata } from 'next'
+import CustomLink from '@/components/CustomLink'
+import TransitionIndicator from '@/components/TransitionIndicator'
 import './globals.css'
 import styles from './layout.module.css'
 
@@ -17,19 +19,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ReactQueryClientProvider>
-        <body>
-          <div className={styles.header}>
-            <Link
-              className={styles.titleLink}
-              href="/"
-              style={{ display: 'inline-block' }}
-            >
-              <h1 className={styles.title}>PodCaster</h1>
-            </Link>
-          </div>
-          <hr className={styles.horizontalRule} />
-          {children}
-        </body>
+        <PageTransitionProvider>
+          <body>
+            <div className={styles.header}>
+              <CustomLink
+                className={styles.titleLink}
+                href="/"
+                style={{ display: 'inline-block' }}
+              >
+                <h1 className={styles.title}>PodCaster</h1>
+              </CustomLink>
+              <TransitionIndicator />
+            </div>
+            <hr className={styles.horizontalRule} />
+            {children}
+          </body>
+        </PageTransitionProvider>
       </ReactQueryClientProvider>
     </html>
   )
