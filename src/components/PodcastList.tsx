@@ -18,7 +18,9 @@ const PodcastList = () => {
   return (
     <div>
       <div className={styles.topSection}>
-        {isLoading && <p>Loading...</p>}
+        {isLoading && (
+          <p>Please wait for the Podcasts to Load. It might take a minute...</p>
+        )}
         {isSuccess && <p>Success</p>}
         <div className={styles.podcastCount}>{podcastNumber}</div>
         <input
