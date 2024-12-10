@@ -27,7 +27,8 @@ In order to run it locally you have two options:
 
 - production
 - dev
-  But first you'll need to clone the repo and install the dependencies.
+
+But first you'll need to clone the repo and install the dependencies.
 
 ### Installation
 
@@ -49,7 +50,7 @@ That is an example of cloning via github cli. It will differ accordingly for
 https://github.com/ferpar/inditex-tst.git
 ````
 
-There are no environment variables, since all external services in use are publicly available.
+There are **no environment variables**, since all external services in use are publicly available.
 
 #### production build
 
@@ -73,7 +74,7 @@ and then visit http://localhost:3000
 
 ## Running Tests
 
-To execute tests, follow the installation process on the 'Check it out' section. Then use the following command:
+To execute tests, follow the installation process as instructed above in the Installation section. Then use the following command:
 
 ```bash
 npm run test
@@ -111,14 +112,6 @@ Then we have the **Main layer**, it is comprised of Pages and Components which i
 
 The **Markup** is our last layer and it is represented by the rendered output of our components at every given route. This output will be received by the Browser, which will generate/update the DOM accordingly.
 
-#### Additional considerations on Layering and Architecture
-
-For an App with a higher responsibility on the Front End, I would advocate for a separation of Business and Presentation Logic from the React lifecycle.
-
-For instance, this can be done using a reactive state manager such as MobX or Legend State and allows for easier testing of our logic since it is no longer intermingled with the React rendering process. Then via observers it is possible to tell React exactly which parts to rerender without relying on the refresh of a whole branch of the component tree which React depends on by default.
-
-Other frameworks such as Svelte are also an option to consider when your aim is to better separate Business and Presentation logic from the rendering process.
-
 ### Routing and Components
 
 From the specification it can be derived that certain Components must remain even after a route change. Normally this involves sub-routing, which in this case is being handled via Layouts.
@@ -127,6 +120,14 @@ The components that must remain even after certain route changes are:
 
 - Top Section with App Title and Page Transition Indicator => @ main layout
 - The Podcast Information Card on the left side when examining the contents of a Podcast => @ podcast/[podcastId] layout
+
+#### Additional considerations on Layering and Architecture
+
+For an App with a higher responsibility on the Front End, I would advocate for a separation of Business and Presentation Logic from the React lifecycle.
+
+For instance, this can be done using a reactive state manager such as MobX or Legend State and allows for easier testing of our logic since it is no longer intermingled with the React rendering process. Then via observers it is possible to tell React exactly which parts to rerender without relying on the refresh of a whole branch of the component tree which React depends on by default.
+
+Other frameworks such as Svelte are also an option to consider when your aim is to better separate Business and Presentation logic from the rendering process.
 
 ## DX and code quality
 
